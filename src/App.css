@@ -15,6 +15,10 @@ body {
     cursor: pointer;
 }
 
-.loader {
-    color: #5c9ae0;
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
 }
