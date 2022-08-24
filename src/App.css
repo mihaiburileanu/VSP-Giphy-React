@@ -1,24 +1,63 @@
 body {
-    background-color: #09192c;
+    background-color: #18293f;
 }
 
-.gifs {
+.page {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin: 0 auto;
-    width: 80%;
-}
-
-.gif {
-    padding: 3px;
-    cursor: pointer;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .form {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 350px;
     height: 100px;
+}
+
+input[type=text] {
+    width: 150px;
+    border: 2px solid rgb(17, 203, 228);
+    border-radius: 4px;
+    font-size: 16px;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+    background-color: rgb(72, 53, 121);
+    border: 1px solid rgb(6, 233, 36);
+    color: rgb(6, 233, 36);
+  }
+
+.gifs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.gif {
+    position: relative;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.gif:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #24cdd5;
+    transition: 0.3s;
+    transform: scale(0,1);
+}
+
+.gif:hover::after {
+    width: 100%;
+    transform: scale(1,1);
 }
