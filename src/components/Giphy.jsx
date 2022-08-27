@@ -6,7 +6,11 @@ const Giphy = () => {
   // eslint-disable-next-line
   const [counter, setCounter] = useState(0);
   const dataFetchedRef = useRef(false);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(() => {
+    const saved = localStorage.getItem("search");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "";
+  });
 
   useEffect(() => {
     const getData = async () => {
@@ -50,6 +54,10 @@ const Giphy = () => {
       })
       setData(results.data.data);
   };
+
+  useEffect(() => {
+    localStorage.setItem("search", JSON.stringify(search));
+  }, [search]);
 
   return (
     <div className='container page'>
